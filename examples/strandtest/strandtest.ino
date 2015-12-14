@@ -1,7 +1,8 @@
 /*
   Pixie reads data in at 115.2k serial, 8N1.
-  Byte order is R1, G1, B1, R2, G2, B2, ... where the first triplet is the color of the LED that's closest to the controller. 1ms of silence causes a latch.
-  2 seconds of silence causes everything off (safety) as does overheating.
+  Byte order is R1, G1, B1, R2, G2, B2, ... where the first triplet is the
+  color of the LED that's closest to the controller. 1ms of silence triggers
+  latch. 2 seconds silence (or overheating) triggers LED off (for safety).
 
   Do not look into Pixie with remaining eye!
 */
@@ -10,38 +11,40 @@
 #include "Adafruit_Pixie.h"
 
 #define NUMPIXELS 3 // Number of Pixies in the strip
-#define PIXIEPIN  6
+#define PIXIEPIN  6 // Pin number for SoftwareSerial output
 
 SoftwareSerial pixieSerial(-1, PIXIEPIN);
 
 Adafruit_Pixie strip = Adafruit_Pixie(NUMPIXELS, &pixieSerial);
+// Alternately, can use a hardware serial port for output, e.g.:
+// Adafruit_Pixie strip = Adafruit_Pixie(NUMPIXELS, &Serial1);
 
 void setup() {
   int i;
-  // put your setup code here, to run once:
+
   Serial.begin(9600);
   Serial.println("Ready to Pixie!");
 
-  pixieSerial.begin(115200); // pixie needs this baud rate
-  strip.begin();
+  pixieSerial.begin(115200); // Pixie REQUIRES this baud rate
+  // Serial1.begin(115200);  // <- Alt. if using hardware serial port
 
-  strip.setBrightness(200);  // adjust as necessary to avoid blinding
+  strip.setBrightness(200);  // Adjust as necessary to avoid blinding
 
   Serial.println("Red!");
   for(i=0; i< NUMPIXELS; i++)
-    strip.setPixelColor(i, strip.Color(0xFF, 0, 0));
+    strip.setPixelColor(i, 255, 0, 0);
   strip.show();
   delay(300);
 
   Serial.println("Green!");
   for(i=0; i< NUMPIXELS; i++)
-    strip.setPixelColor(i, strip.Color(0, 0xFF, 0));
+    strip.setPixelColor(i, 0, 255, 0);
   strip.show();
   delay(300);
 
   Serial.println("Blue!");
   for(i=0; i< NUMPIXELS; i++)
-    strip.setPixelColor(i, strip.Color(0,0, 0xFF));
+    strip.setPixelColor(i, 0, 0, 255);
   strip.show();
   delay(300);
 }
