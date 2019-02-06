@@ -1,4 +1,4 @@
-# Adafruit Pixie library md [![Build Status](https://travis-ci.com/adafruit/Adafruit_Pixie.svg?branch=master)](https://travis-ci.com/adafruit/Adafruit_Pixie)
+# Adafruit Pixie library [![Build Status](https://travis-ci.com/adafruit/Adafruit_Pixie.svg?branch=master)](https://travis-ci.com/adafruit/Adafruit_Pixie)
 
 <a href="https://www.adafruit.com/products/2741"><img src="assets/pixie.jpg?raw=true" width="500px"></a>
 
