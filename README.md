@@ -1,11 +1,10 @@
-Adafruit Pixie library
-=========================
+# Adafruit Pixie library md [![Build Status](https://travis-ci.com/adafruit/Adafruit_Pixie.svg?branch=master)](https://travis-ci.com/adafruit/Adafruit_Pixie)
 
 Arduino library for controlling Pixie - a 3W chainable LED. Uses one serial pin, "NeoPixel" library compatible.
 
 Check it out over at 
 
-   * https://www.adafruit.com/products/2741
+* [https://www.adafruit.com/products/2741](https://www.adafruit.com/products/2741)
 
 Adafruit invests time and resources providing this open source code, 
 please support Adafruit and open-source hardware by purchasing 
