@@ -1,4 +1,4 @@
-# Adafruit Pixie library [![Build Status](https://github.com/adafruit/Adafruit_Pixie/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_Pixie/actions)
+# Adafruit Pixie library [![Build Status](https://github.com/adafruit/Adafruit_Pixie/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_Pixie/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_Pixie/html/index.html)
 
 <a href="https://www.adafruit.com/products/2741"><img src="assets/pixie.jpg?raw=true" width="500px"></a>
 
