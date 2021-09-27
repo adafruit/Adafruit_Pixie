@@ -7,14 +7,24 @@
   Do not look into Pixie with remaining eye!
 */
 
-#include "SoftwareSerial.h"
 #include "Adafruit_Pixie.h"
 
-#define NUMPIXELS 3 // Number of Pixies in the strip
-#define PIXIEPIN  6 // Pin number for SoftwareSerial output
+#if (defined(__AVR__) || defined(ESP8266)) && !defined(__AVR_ATmega2560__)
+// For UNO and others without hardware serial, we must use software serial...
+// Set up the serial port to use softwareserial..
 
+#include "SoftwareSerial.h"
+#define PIXIEPIN  6 // Pin number for SoftwareSerial output
 SoftwareSerial pixieSerial(-1, PIXIEPIN);
 
+#else
+// On Leonardo/M0/etc, others with hardware serial, use hardware serial!
+// #0 is green wire, #1 is white
+#define pixieSerial Serial1
+
+#endif
+
+#define NUMPIXELS 3 // Number of Pixies in the strip
 Adafruit_Pixie strip = Adafruit_Pixie(NUMPIXELS, &pixieSerial);
 // Alternately, can use a hardware serial port for output, e.g.:
 // Adafruit_Pixie strip = Adafruit_Pixie(NUMPIXELS, &Serial1);
